@@ -3,8 +3,6 @@ import { Base64 } from "https://code4fukui.github.io/Base64/Base64.js";
 export const askImage = async (jpeg, model = "gemma3:4b") => {
   const b64 = Base64.encode(jpeg);
 
-  // 「キーワードだけ」返させたいので JSON 形式を強制（format: "json"）
-  // Ollamaの /api/generate は images: string[] を受け取れます :contentReference[oaicite:1]{index=1}
   const body = {
     model,
     stream: false,

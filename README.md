@@ -24,6 +24,12 @@ deno --env-file --allow-env --allow-net ask.js あなたの名前は？
 deno --env-file --allow-env --allow-net askimg.js test3.png
 ```
 
+### addembed
+
+```sh
+deno --env-file --allow-env --allow-net addembed.js data.txt
+```
+
 ## Install
 
 ### ask

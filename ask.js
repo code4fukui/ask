@@ -1,7 +1,7 @@
-import { showChatStreaming } from "./showChatStreaming.js";
+import { showChat } from "./showChat.js";
 
 const model = Deno.env.get("AI_MODEL");
 
 const q = Deno.args[0];
 
-await showChatStreaming(q, model);
+await showChat(q, model);

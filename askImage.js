@@ -18,5 +18,9 @@ export const askImage = async (img, prompt, model = "gemma3:4b") => {
   });
   if (res.status != 200) throw new Error(res);
   const json = await res.json();
-  return JSON.parse(json.response); //.keywords;
+  try {
+    return JSON.parse(json.response);
+  } catch (e) {
+    return json.response;
+  }
 };

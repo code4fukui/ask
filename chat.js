@@ -1,7 +1,8 @@
-const OLLAMA = "http://localhost:11434";
+export const HOST_OLLAMA = "http://localhost:11434";
+export const HOST_TRANSFORMER = "http://localhost:8000";
 
-export const chat = async (prompt, model = "gemma3:4b") => {
-  const res = await fetch(`${OLLAMA}/api/generate`, {
+export const chat = async (prompt, model = "gemma3:4b", host = HOST_OLLAMA) => {
+  const res = await fetch(`${host}/api/generate`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

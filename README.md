@@ -15,7 +15,21 @@ ollama run gemma3:4b
 ### ask
 
 ```sh
+deno --env-file --allow-env --allow-net --allow-run ask.js あなたの名前は？
+```
+
+#### ask with qwen3.5:0.8b
+
+```sh
+export AI_HOST=http://localhost:11434
+export AI_MODEL=qwen3.5:0.8b
 deno --env-file --allow-env --allow-net ask.js あなたの名前は？
+```
+
+```sh
+export AI_HOST=http://localhost:1134
+export AI_MODEL=qwen3.5:0.8b
+deno --env-file --allow-env --allow-net ask_nostream.js あなたの名前は？
 ```
 
 ### askimg
@@ -29,9 +43,7 @@ deno --env-file --allow-env --allow-net askimg.js test3.png
 ### ask
 
 ```sh
-export AI_ENDPOINT=http://localhost:11434/v1/chat/completions
-export AI_MODEL=gemma3:4b
-deno install --global --allow-env --allow-net -f ask.js
+deno install --global --allow-env --allow-net --allow-import --allow-run ask.js
 ```
 
 ### askimg

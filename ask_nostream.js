@@ -1,7 +1,7 @@
-const url = Deno.env.get("AI_ENDPOINT");
+const host = Deno.env.get("AI_HOST");
 const model = Deno.env.get("AI_MODEL");
-if (!url || !model) {
-  throw new Error("set AI_ENDPOINT and AI_MODEL");
+if (!host || !model) {
+  throw new Error("set AI_HOST and AI_MODEL");
 }
 
 const q = Deno.args[0];
@@ -9,7 +9,14 @@ const q = Deno.args[0];
 const req = {
   model,
   messages: [{ role: "user", content: q }],
+  //max_tokens: 32768,
+  //max_tokens: 10 * 1024,
+  max_tokens: 1 * 1024,
+  temperature: 1.0,
+  top_p: 1.0,
+  presence_penalty: 2.0,
 };
+const url = host + "/v1/chat/completions";
 const json = await (await fetch(url, {
   method: "POST",
   headers: {

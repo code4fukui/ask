@@ -1,6 +1,9 @@
-import ollama from "npm:ollama";
+//import ollama from "npm:ollama";
+import { Ollama } from "npm:ollama";
+import { stopOllama } from "./stopOllama.js";
 
-export const showChat = async (q, model = "gemma3:4b") => {
+export const showChat = async (q, model = "gemma3:4b", host = "http://127.0.0.1:11434", stopollama = true) => {
+  const ollama = new Ollama({ host });
   const stream = await ollama.chat({
     model,
     messages: [{ role: "user", content: q }],
@@ -29,5 +32,8 @@ export const showChat = async (q, model = "gemma3:4b") => {
       // accumulate the partial content
       content += chunk.message.content;
     }
+  }
+  if (stopollama) {
+    await stopOllama(model);
   }
 };

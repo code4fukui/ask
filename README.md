@@ -1,5 +1,7 @@
 # ask
 
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
+
 Ask to AI by [ollama](https://ollama.com/) API using [Deno](https://deno.com/).
 
 ## Features

@@ -52,3 +52,6 @@ deno uninstall --global askimg
 
 ## Library
 - [ollama/ollama-js: Ollama JavaScript library](https://github.com/ollama/ollama-js)
+
+## License
+MIT License — see [LICENSE](LICENSE).

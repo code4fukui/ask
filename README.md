@@ -32,6 +32,17 @@ deno --env-file --allow-env --allow-net ask.js "What is your name?"
 deno --env-file --allow-env --allow-net askimg.js test3.png
 ```
 
+### askaud
+
+```sh
+deno --env-file --allow-env --allow-read --allow-write --allow-run askaud.js sample.wav
+```
+
+```sh
+export AI_MODEL=gemma4:e4b
+deno --env-file --allow-env --allow-read --allow-write --allow-run askaud.js sample.wav "この音声を日本語で文字起こししてください。"
+```
+
 ## Install
 
 ### ask
@@ -44,10 +55,17 @@ deno install --global --allow-env --allow-net --allow-import --allow-run ask.js
 deno install --global --allow-env --allow-net --allow-import --allow-read -f askimg.js
 ```
 
+### askaud
+
+```sh
+deno install --global --allow-env --allow-read --allow-write --allow-run -f askaud.js
+```
+
 ## Uninstall
 ```sh
 deno uninstall --global ask
 deno uninstall --global askimg
+deno uninstall --global askaud
 ```
 
 ## Library

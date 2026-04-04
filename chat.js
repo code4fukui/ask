@@ -1,7 +1,9 @@
+import { stopOllama } from "./stopOllama.js";
+
 export const HOST_OLLAMA = "http://localhost:11434";
 export const HOST_TRANSFORMER = "http://localhost:8000";
 
-export const chat = async (prompt, model = "gemma3:4b", host = HOST_OLLAMA) => {
+export const chat = async (prompt, model = "gemma3:4b", host = HOST_OLLAMA, stopollama = true) => {
   const res = await fetch(`${host}/api/generate`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -13,5 +15,8 @@ export const chat = async (prompt, model = "gemma3:4b", host = HOST_OLLAMA) => {
     }),
   });
   const json = await res.json();
+  if (stopollama) {
+    await stopOllama(model);
+  }
   return json.response ?? "";
 };

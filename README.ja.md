@@ -1,46 +1,44 @@
 # ask
 
-> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
+[Deno](https://deno.com/) を使用して [ollama](https://ollama.com/) API 経由で AI に質問します。
 
-Ask to AI by [ollama](https://ollama.com/) API using [Deno](https://deno.com/).
+## セットアップ
 
-## Setup
-
-setup [ollama](https://ollama.com/) and [Deno](https://deno.com/).
+[ollama](https://ollama.com/) と [Deno](https://deno.com/) をセットアップします。
 
 ```sh
 ollama run gemma3:4b
 ```
 
-## Features
-- Connect to the ollama API to ask questions
-- Display the response as a streaming output
-- Generate images
+## 機能
+- ollama API に接続して質問する
+- 応答をストリーミング出力として表示する
+- 画像から生成する
 
-## Requirements
-- [ollama](https://ollama.com/download) installation
+## 必要条件
+- [ollama](https://ollama.com/download) のインストール
 - Deno
 
-## Usage
+## 使い方
 
-### Ask a question
+### 質問する
 ```sh
 deno --env-file --allow-env --allow-net --allow-run ask.js "What is your name?"
 ```
 
-#### Change the model
+#### モデルを変更する
 ```sh
 export AI_HOST=http://localhost:11434
 export AI_MODEL=qwen3.5:0.8b
 deno --env-file --allow-env --allow-net ask.js "What is your name?"
 ```
 
-### Generate an image
+### 画像から生成する
 ```sh
 deno --env-file --allow-env --allow-net askimg.js test3.png
 ```
 
-## Install
+## インストール
 
 ### ask
 ```sh
@@ -52,14 +50,14 @@ deno install --global --allow-env --allow-net --allow-import --allow-run ask.js
 deno install --global --allow-env --allow-net --allow-import --allow-read -f askimg.js
 ```
 
-## Uninstall
+## アンインストール
 ```sh
 deno uninstall --global ask
 deno uninstall --global askimg
 ```
 
-## Library
+## ライブラリ
 - [ollama/ollama-js: Ollama JavaScript library](https://github.com/ollama/ollama-js)
 
-## License
-MIT License — see [LICENSE](LICENSE).
+## ライセンス
+MIT License — 詳細は [LICENSE](LICENSE) を参照してください。
